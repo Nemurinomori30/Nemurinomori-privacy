@@ -15,16 +15,19 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 @keyframes twinkle{0%,100%{opacity:0}50%{opacity:var(--op,0.7)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--border);backdrop-filter:blur(10px);}
-.nav-logo{font-family:'Shippori Mincho',serif;font-size:14px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0;}
-.nav-links{display:flex;gap:16px;flex-shrink:0;}
-.nav-links a{font-size:12px;color:var(--soft);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s;white-space:nowrap;}
+
+nav{position:relative;z-index:10;border-bottom:1px solid var(--border);backdrop-filter:blur(10px);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+nav::-webkit-scrollbar{display:none;}
+.nav-inner{display:flex;align-items:center;gap:24px;padding:14px 20px;white-space:nowrap;min-width:max-content;}
+.nav-logo{font-family:'Shippori Mincho',serif;font-size:14px;font-weight:700;color:#fff;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.nav-links{display:flex;gap:20px;flex-shrink:0;}
+.nav-links a{font-size:12px;color:var(--soft);text-decoration:none;white-space:nowrap;transition:color 0.2s;letter-spacing:0.06em;}
 .nav-links a:hover{color:var(--star);}
 .hero{position:relative;z-index:1;text-align:center;padding:60px 20px 40px;}
 .hero-badge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.2em;color:var(--star);margin-bottom:18px;opacity:0.85;}
 .hero-title{font-family:'Shippori Mincho',serif;font-size:clamp(30px,8vw,52px);font-weight:800;color:#fff;letter-spacing:0.05em;white-space:nowrap;text-shadow:0 0 60px rgba(255,229,102,0.20);}
 .hero-en{margin-top:8px;font-size:12px;color:var(--soft);letter-spacing:0.12em;}
-.hero-catch{margin-top:5px;font-size:12px;color:var(--soft);letter-spacing:0.08em;}
+.hero-catch{margin-top:5px;font-size:12px;color:var(--soft);}
 .hero-desc{margin-top:22px;font-size:14px;line-height:1.9;color:rgba(255,255,255,0.62);max-width:480px;margin-left:auto;margin-right:auto;text-align:left;}
 .chars-preview{position:relative;z-index:1;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:30px 20px 40px;}
 .char-thumb{width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,229,102,0.22);box-shadow:0 0 20px rgba(0,0,0,0.3);transition:transform 0.3s;}
@@ -37,23 +40,25 @@ nav{position:relative;z-index:10;display:flex;align-items:center;justify-content
 .card:nth-child(1){border-color:rgba(255,229,102,0.18);animation-delay:0.1s;}
 .card:nth-child(2){animation-delay:0.2s;}
 .card-icon{font-size:28px;margin-bottom:12px;display:block;}
-.card-title{font-family:'Shippori Mincho',serif;font-size:16px;font-weight:700;color:#fff;letter-spacing:0.04em;margin-bottom:8px;}
+.card-title{font-family:'Shippori Mincho',serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;}
 .card-desc{font-size:12px;line-height:1.75;color:rgba(255,255,255,0.55);}
-.card-arrow{margin-top:14px;font-size:11px;color:var(--star);letter-spacing:0.08em;opacity:0.75;}
+.card-arrow{margin-top:14px;font-size:11px;color:var(--star);opacity:0.75;}
 
-footer{position:relative;z-index:1;text-align:center;padding:32px 24px 48px;border-top:1px solid var(--border);}
-.moon-icon{font-size:24px;display:block;margin-bottom:12px;animation:float 4s ease-in-out infinite;}
+footer{position:relative;z-index:1;text-align:center;padding:28px 20px 44px;border-top:1px solid var(--border);}
+.moon-icon{font-size:22px;display:block;margin-bottom:10px;animation:float 4s ease-in-out infinite;}
 footer p{font-size:12px;color:var(--soft);}
 </style>
 </head>
 <body>
 <div class="stars" id="stars"></div>
 <nav>
-  <a class="nav-logo" href="index.html">🌙 眠りの森のねこ</a>
-  <div class="nav-links">
-    <a href="index.html">トップ</a>
-    <a href="characters.html">なかまたち</a>
-    <a href="privacy.html">プライバシー</a>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">🌙 眠りの森のねこ</a>
+    <div class="nav-links">
+      <a href="index.html">トップ</a>
+      <a href="characters.html">なかまたち</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
   </div>
 </nav>
 <div class="hero">
